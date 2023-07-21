@@ -10,6 +10,7 @@ public class MenuPrincipal {
         JLabel seleccione = new JLabel("Seleccione una opción de conversión");
         JComboBox<String> comboBox = new JComboBox<>(opciones);
 
+
         JPanel menu = new JPanel();
         menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
         comboBox.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -18,7 +19,17 @@ public class MenuPrincipal {
         menu.add(Box.createVerticalStrut(5)); // Espacio vertical entre la etiqueta y el JComboBox
         menu.add(comboBox);
 
-        JOptionPane.showMessageDialog(null,menu,"Menu", JOptionPane.PLAIN_MESSAGE);
 
+        int opcion = JOptionPane.showOptionDialog(null, menu, "Menu", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+                null,new String[]{"OK", "Cancel"},
+                null);
+
+        if (opcion == JOptionPane.YES_OPTION){
+            int i = comboBox.getSelectedIndex();
+            if (i != -1){
+                String asd = opciones[i];
+                JOptionPane.showMessageDialog(null,opciones[i]);
+            }
+        }
     }
 }
