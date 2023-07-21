@@ -6,29 +6,22 @@ import java.awt.*;
 public class MenuPrincipal {
 
     public MenuPrincipal(){
-        String[] opciones = {"Opción 1", "Opción 2", "Opción 3", "Opción 4"};
+        String[] opciones = {"Conversion de Moneda", "Conversor de Temperatura", "Conversor de Grados a Rad"};
         JLabel seleccione = new JLabel("Seleccione una opción de conversión");
         JComboBox<String> comboBox = new JComboBox<>(opciones);
 
+        String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, opciones[0]);
 
-        JPanel menu = new JPanel();
-        menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
-        comboBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        seleccione.setAlignmentX(Component.LEFT_ALIGNMENT);
-        menu.add(seleccione);
-        menu.add(Box.createVerticalStrut(5)); // Espacio vertical entre la etiqueta y el JComboBox
-        menu.add(comboBox);
+        if (opcion != null){
+            switch (opcion) {
+                case "Conversion de Moneda" -> {
+                    EntradaDeValor monedas = new EntradaDeValor();
+                }
+                case "Conversor de Temperatura", "Conversor de Grados a Rad" -> {
+                    JOptionPane.showMessageDialog(null, "Por Ahora no disponible");
+                    MenuPrincipal a = new MenuPrincipal();
+                }
 
-
-        int opcion = JOptionPane.showOptionDialog(null, menu, "Menu", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
-                null,new String[]{"OK", "Cancel"},
-                null);
-
-        if (opcion == JOptionPane.YES_OPTION){
-            int i = comboBox.getSelectedIndex();
-            if (i != -1){
-                String asd = opciones[i];
-                JOptionPane.showMessageDialog(null,opciones[i]);
             }
         }
     }
