@@ -3,11 +3,11 @@ package Challenges.ConversorDeMoneda;
 import javax.swing.*;
 
 public class EntradaDeValor {
-    private static int valor = 0;
+    private static double valor = 0;
     private JLabel asd =new JLabel("Ingresa la cantidad de dinero que deseas convertir");
     private String valorString;
 
-    public static int getValor() {
+    public static double getValor() {
         return valor;
     }
 
