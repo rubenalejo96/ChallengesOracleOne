@@ -10,7 +10,7 @@ public class MenuPrincipal {
         JLabel seleccione = new JLabel("Seleccione una opción de conversión");
         JComboBox<String> comboBox = new JComboBox<>(opciones);
 
-        String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, opciones[0]);
+        String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, null);
 
         if (opcion != null){
             switch (opcion) {
