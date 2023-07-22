@@ -16,7 +16,7 @@ public class EntradaDeValor {
         valorString = JOptionPane.showInputDialog(null, asd, "Ingresa el Valor", JOptionPane.QUESTION_MESSAGE);
 
         try {
-            valor = Integer.parseInt(valorString);
+            valor = Double.parseDouble(valorString);
             if (valor > 0){
                 OpcionesDeMonedas mon = new OpcionesDeMonedas();
             }

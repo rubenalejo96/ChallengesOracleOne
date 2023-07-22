@@ -1,6 +1,8 @@
 package Challenges.ConversorDeMoneda;
 
 import javax.swing.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 
 public class OpcionesDeMonedas {
@@ -10,6 +12,12 @@ public class OpcionesDeMonedas {
     JLabel seleccione = new JLabel("Elige la moneda a la que deseas convertir tu moneda");
 
     double valorEscrito = 0;
+
+    public double redondear(double v){
+        BigDecimal decimal = new BigDecimal(v);
+        decimal = decimal.setScale(2, RoundingMode.HALF_UP);
+        return decimal.doubleValue();
+    }
     public OpcionesDeMonedas() {
         String moneda = (String) JOptionPane.showInputDialog(null, seleccione,"Monedas", JOptionPane.DEFAULT_OPTION,null, monedas, null);
         valorEscrito = EntradaDeValor.getValor();
@@ -23,10 +31,48 @@ public class OpcionesDeMonedas {
                     valorEscrito *= 0.28;
                     mon = "Dolares";
                 }
-                case "Soles a Euro" -> valorEscrito *= 39.49;
+                case "Soles a Euro" -> {
+                    valorEscrito *= 0.25;
+                    mon = "Euros";
+                }
+                case "Soles a Libras Esterlinas" -> {
+                    valorEscrito *= 0.22;
+                    mon = "Libras Esterlinas";
+                }
+                case "Soles a Yen Japonés" -> {
+                    valorEscrito *= 39.58;
+                    mon = "Yen Japonés";
+                }
+                case "Soles a Won Sur-Coreano" -> {
+                    valorEscrito *= 359.14;
+                    mon = "Won Sur-Coreano";
+                }
+                case "Dólar a Soles" -> {
+                    valorEscrito *= 3.58;
+                    mon = "Soles";
+                }
+                case "Euro a Soles" -> {
+                    valorEscrito *= 3.99;
+                    mon = "Soles";
+                }
+                case "Libras Esterlinas a Soles" -> {
+                    valorEscrito *= 4.61;
+                    mon = "Soles";
+                }
+                case "Yen Japonés a Soles" -> {
+                    valorEscrito *= 0.025;
+                    mon = "Soles";
+                }
+                case "Won Sur-Coreano a Soles" -> {
+                    valorEscrito *= 0.0028;
+                    mon = "Soles";
+                }
+
+
 
             }
-            JOptionPane.showMessageDialog(null,valorEscrito + " " + mon );
+            JOptionPane.showMessageDialog(null,"Tienes " + redondear(valorEscrito) + " " + mon );
+            DeseaContinuar continuar = new DeseaContinuar();
         }
     }
 
