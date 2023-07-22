@@ -6,12 +6,13 @@ import java.math.RoundingMode;
 
 
 public class OpcionesDeMonedas {
-    String mon = "";
-    String[] monedas = {"Soles a Dólar", "Soles a Euro", "Soles a Libras Esterlinas", "Soles a Yen Japonés", "Soles a Won Sur-Coreano",
+    private String mon = "";
+    private String[] monedas = {"Soles a Dólar", "Soles a Euro", "Soles a Libras Esterlinas", "Soles a Yen Japonés", "Soles a Won Sur-Coreano",
                         "Dólar a Soles", "Euro a Soles", "Libras Esterlinas a Soles", "Yen Japonés a Soles", "Won Sur-Coreano a Soles"};
-    JLabel seleccione = new JLabel("Elige la moneda a la que deseas convertir tu moneda");
+    private JLabel seleccione = new JLabel("Elige la moneda a la que deseas convertir");
+    private String moneda = (String) JOptionPane.showInputDialog(null, seleccione,"Monedas", JOptionPane.DEFAULT_OPTION,null, monedas, null);
 
-    double valorEscrito = 0;
+    private double valorEscrito = EntradaDeValor.getValor();;
 
     public double redondear(double v){
         BigDecimal decimal = new BigDecimal(v);
@@ -19,11 +20,6 @@ public class OpcionesDeMonedas {
         return decimal.doubleValue();
     }
     public OpcionesDeMonedas() {
-        String moneda = (String) JOptionPane.showInputDialog(null, seleccione,"Monedas", JOptionPane.DEFAULT_OPTION,null, monedas, null);
-        valorEscrito = EntradaDeValor.getValor();
-//        JOptionPane.showMessageDialog(null,valorEscrito );
-
-
         if (moneda != null){
 
             switch (moneda) {
@@ -72,7 +68,7 @@ public class OpcionesDeMonedas {
 
             }
             JOptionPane.showMessageDialog(null,"Tienes " + redondear(valorEscrito) + " " + mon );
-            DeseaContinuar continuar = new DeseaContinuar();
+            new DeseaContinuar();
         }
     }
 

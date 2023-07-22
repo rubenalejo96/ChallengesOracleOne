@@ -4,25 +4,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MenuPrincipal {
+    private String[] opciones = {"Conversion de Moneda", "Conversor de Temperatura", "Conversor de Grados a Rad"};
+    private JLabel seleccione = new JLabel("Seleccione una opción de conversión");
+    private String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, null);
 
     public MenuPrincipal(){
-        String[] opciones = {"Conversion de Moneda", "Conversor de Temperatura", "Conversor de Grados a Rad"};
-        JLabel seleccione = new JLabel("Seleccione una opción de conversión");
-        JComboBox<String> comboBox = new JComboBox<>(opciones);
-
-        String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, null);
-
         if (opcion != null){
             switch (opcion) {
                 case "Conversion de Moneda" -> {
-                    EntradaDeValor monedas = new EntradaDeValor();
+                    new EntradaDeValor();
                 }
-                case "Conversor de Temperatura", "Conversor de Grados a Rad" -> {
+                case "Conversor de Temperatura" -> {
+                    new EntradaDeTemperatura();
+                }
+                case "Conversor de Grados a Rad" -> {
                     JOptionPane.showMessageDialog(null, "Por Ahora no disponible");
-                    MenuPrincipal a = new MenuPrincipal();
+                    new MenuPrincipal();
                 }
 
             }
+        }else {
+            JOptionPane.showMessageDialog(null, "Programa Finalizado", "Adios", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
