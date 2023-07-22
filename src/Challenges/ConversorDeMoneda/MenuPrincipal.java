@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MenuPrincipal {
-    private String[] opciones = {"Conversion de Moneda", "Conversor de Temperatura", "Conversor de Grados a Rad"};
+    private String[] opciones = {"Conversion de Moneda", "Conversor de Temperatura", "Conversor de Unidades"};
     private JLabel seleccione = new JLabel("Seleccione una opción de conversión");
     private String opcion = (String) JOptionPane.showInputDialog(null, seleccione, "Menu", JOptionPane.DEFAULT_OPTION, null, opciones, null);
 
@@ -17,9 +17,8 @@ public class MenuPrincipal {
                 case "Conversor de Temperatura" -> {
                     new EntradaDeTemperatura();
                 }
-                case "Conversor de Grados a Rad" -> {
-                    JOptionPane.showMessageDialog(null, "Por Ahora no disponible");
-                    new MenuPrincipal();
+                case "Conversor de Unidades" -> {
+                    new EntradaDeUnidades();
                 }
 
             }

@@ -17,6 +17,7 @@ public class EntradaDeTemperatura {
         }catch (NumberFormatException e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Temperatura Invalida", "Error", JOptionPane.ERROR_MESSAGE);
+            new EntradaDeTemperatura();
         }
 
 
