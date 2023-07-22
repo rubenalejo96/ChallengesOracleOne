@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-//        MenuPrincipal menu = new MenuPrincipal();
-        DeseaContinuar a = new DeseaContinuar();
+        MenuPrincipal menu = new MenuPrincipal();
+
     }
 }

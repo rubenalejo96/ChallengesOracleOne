@@ -10,7 +10,7 @@ public class DeseaContinuar {
         if (i == JOptionPane.YES_OPTION){
             MenuPrincipal a = new MenuPrincipal();
         } else{
-            JOptionPane.showMessageDialog(null, "Saliendo de la Aplicacion", "Adios", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Programa Finalizado", "Adios", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
